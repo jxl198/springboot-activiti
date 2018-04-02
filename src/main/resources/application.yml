@@ -1,0 +1,53 @@
+
+server:
+    port: 8080
+
+spring:
+  devtools:
+    restart:
+      enabled: false
+#  freemarker:
+#    template-loader-path: classpath:/templates/html
+#    cache: false
+#    charset: UTF-8
+#    check-template-location: true
+#    content-type: text/html
+#    expose-request-attributes: true
+#    expose-session-attributes: true 
+#    request-context-attribute: request
+#    suffix: .html  
+connection:
+  url: jdbc:mysql://localhost:3306/activiti?useUnicode=true&characterEncoding=utf8
+  username: root
+  password: 123456
+druid:
+  initialSize: 1
+  minIdle: 1
+  maxActive: 10
+  maxWait: 10000
+  timeBetweenEvictionRunsMillis: 60000
+  minEvictableIdleTimeMillis: 300000
+  validationQuery: select 1
+  testWhileIdle: true
+  testOnBorrow: true
+  testOnReturn: false
+  
+  poolPreparedStatements: true
+  maxPoolPreparedStatementPerConnectionSize: 20
+  filters: stat
+  loginUsername: admin
+  loginPassword: 123456
+mybatis-plus:
+
+  mapper-locations: classpath:/com/springboot/activiti/dao/*Mapper.xml
+  typeAliasesPackage: com.springboot.activiti.entity
+  global-config:
+    id-type: 1
+    field-strategy: 2
+    db-column-underline: true
+    capital-mode: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+logging:
+  level: warn
